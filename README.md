@@ -1,4 +1,4 @@
-<p align="center"><img src="https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1" width=600></p>
+<p align="center"><img src="https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1" width=1000></p>
 
 # PGL-GRT
 PlantGeneticsLab - Genotype Retrieving Toolkit
