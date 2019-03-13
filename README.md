@@ -1,7 +1,7 @@
 # PGL-GRT
 PlantGeneticsLab - Genotype Retrieving Toolkit
 
-![Logo of GRT](https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?dl=1)
+![Logo of GRT](https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1)
 
 # Introduction of genotype retrieving toolkit
 
@@ -31,7 +31,7 @@ Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
 
 #### <p style="text-align: center;">Overview of genotype retrieving toolkit (GRT)</p>
 
-![pipeline of GRT](https://www.dropbox.com/s/4voizz6k9nzfpdq/database.png?dl=1)<br /><br />
+![pipeline of GRT](https://www.dropbox.com/s/4voizz6k9nzfpdq/database.png?raw=1)<br /><br />
 GRT is written in Java, and packed with JDK 8. Hence, it can run on Linux, Unix, Mac-OS, and Windows systems with Java 8 or later versions installed.<br /><br />
 ### Options
 Options|Description
@@ -107,7 +107,7 @@ It is worth noting that ***Merging tags*** analysis mode is performed by using _
 A tag is a pair of double-end sequencing reads where barcode sequence have been removed. Both paired reads have been shortened to 96 bp in order to remove the bases at the 3’ end which have the low base quality value and to compress the the paired reads so as to reduce the memory consumption (Fig. 1). And the two tags are equal only when the two reads of one tag are the same as the bases of the two reads of the other tag. So one tag can have many duplicate. The minimum duplicate number of one tag is 3 by default, which means every tag at least having 3 duplicate in our wheat variance database. It is up to you to adjust this value by using __<font face="fjalla one" size=4>-mc</font>__ option.<br /><br /><br />
 #### <p style="text-align: center;">Illustratiion of a tag</p>
 
-![Illustration of a tag](https://www.dropbox.com/s/fv8ckd56jdvi0lk/tag.png?dl=1)
+![Illustration of a tag](https://www.dropbox.com/s/fv8ckd56jdvi0lk/tag.png?raw=1)
 <br /><br />
 #### ***Aligning tags***
 After getting your predecessor of the DB, you can run this step. <br /><br />
