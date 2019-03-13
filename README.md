@@ -1,6 +1,6 @@
 # PGL-GRT
 PlantGeneticsLab - Genotype Retrieving Toolkit
-![Logo of GRT](https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1){:height="24px" width="48px"}
+![Logo of GRT](https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1)
 # Introduction of genotype retrieving toolkit
 
 ###### Dec 17, 2018
