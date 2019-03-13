@@ -112,6 +112,7 @@ A tag is a pair of double-end sequencing reads where barcode sequence have been 
 <br /><br />
 
 <a name="at">
+
 #### ***Aligning tags***</a>
 After getting your predecessor of the DB, you can run this step. <br /><br />
 __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m at  -w ./  -g /users/.../iwgscV1.fa.gz  -bwa /users/.../bwa  -t 8  >./atLog.txt</font>__
@@ -155,5 +156,4 @@ __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanG
 [1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
 [2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
 [3.	Lu, F. et al. Switchgrass Genomic Diversity, Ploidy, and Evolution: Novel Insights from a Network-Based SNP Discovery Protocol. *PLoS Genet*. 9, e1003215 (2013).</font>](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003215)
-
 
