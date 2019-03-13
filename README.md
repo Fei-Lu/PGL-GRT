@@ -20,8 +20,8 @@ Changbin Yin (yinchangbin@genetics.ac.cn)<sup>1</sup>, Fei Lu (flu@genetics.ac.c
 <sup>3 </sup>CAS-JIC Centre of Excellence for Plant and Microbial Science (CEPAMS), Shanghai Institutes for Biological Sciences, Chinese Academy of Sciences
 <br /><br />
 ### Overview
-<div style="text-align: justify">Genotype retrieving toolkit (GRT) includes a set of utilities to analyze data derived from the two-enzyme genotyping-by-sequencing (GBS) approach<sup>1</sup>. It has been designed to achieve a goal of being accurate, robust, and efficient while conducting SNP calling and genotyping.</div><br />
-Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
+Genotype retrieving toolkit (GRT) includes a set of utilities to analyze data derived from the two-enzyme genotyping-by-sequencing (GBS) approach<sup>[1](#ref)</sup>. It has been designed to achieve a goal of being accurate, robust, and efficient while conducting SNP calling and genotyping.<br />
+Different from previous GBS pipelines<sup>[2,3](#ref)</sup>,  GRT has 3 features:
 
 1. GRT supports longer sequencing tags and paired-end mapping to further increase mapping accuracy. A GRT tag by default is a 192 bp, paired-end sequence, which is aligned to the reference genome in the paired-end mode in BWA-MEM. It suits well to deal with complex genomes (e.g. wheat).
 2. GRT is designed to have decentralized data collection and centralized data processing, to achieve genotyping consistency between various breeding programs. GRT uses large sequencing data sets from diverse samples to build a genetic variant database of a species, then genotypes of samples to be examined can be “retrieved” from the database. Consistent genotype can be generated from breeding program to breeding program, from generation to generation.
@@ -112,7 +112,6 @@ A tag is a pair of double-end sequencing reads where barcode sequence have been 
 <br /><br />
 
 <a name="at">
- 
 #### ***Aligning tags***</a>
 After getting your predecessor of the DB, you can run this step. <br /><br />
 __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m at  -w ./  -g /users/.../iwgscV1.fa.gz  -bwa /users/.../bwa  -t 8  >./atLog.txt</font>__
@@ -151,7 +150,10 @@ This command will filter the DB and the rawSNP.bin file according to a VCF file 
 When you finished building the DB and filtering it successfully, you can perform ***Parsing fastqs***（please refer above [***Parsing fastqs***](#pf)）and ***Retrieving genotype*** (please refer to following instructions) orderly to get genotype information of your individual sample.
 
 __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./  >./rgLog.txt</font>__<br /><br />
-### References<font size=3>
+<a name="ref">
+### References</a><font size=3>
 [1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
 [2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
 [3.	Lu, F. et al. Switchgrass Genomic Diversity, Ploidy, and Evolution: Novel Insights from a Network-Based SNP Discovery Protocol. *PLoS Genet*. 9, e1003215 (2013).</font>](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003215)
+
+
