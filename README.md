@@ -112,8 +112,8 @@ A tag is a pair of double-end sequencing reads where barcode sequence have been 
 <br /><br />
 
 <a name="at">
+ 
 #### ***Aligning tags***</a>
-
 After getting your predecessor of the DB, you can run this step. <br /><br />
 __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m at  -w ./  -g /users/.../iwgscV1.fa.gz  -bwa /users/.../bwa  -t 8  >./atLog.txt</font>__
 <br /><br />
