@@ -89,9 +89,9 @@ HNF5WCCXY|2|AGTTCC|/Users/.../library-04_R1.clean.fq.gz|/Users/.../library-04_R2
 ...|
 
  If you have prepared these two files successfully, then you can perform following command.  <br /><br />
- __<font face="fjalla one" size=3>java -Xms400g -Xmx400g -jar /users/.../PlanGenetics.jar -m pf -w ./ -b /users/.../barcodefile.txt -f /users/.../libraryFastqMap.txt  -ef GGATCC  -er CCGG  -t 8   >./pfLog.txt </font>__
+ __<font face="fjalla one" size=2>java -Xms400g -Xmx400g -jar /users/.../PlanGenetics.jar -m pf -w ./ -b /users/.../barcodefile.txt -f /users/.../libraryFastqMap.txt  -ef GGATCC  -er CCGG  -t 8   >./pfLog.txt </font>__
  <br /> <br />
-This command will generate many compressed binary files such as taxon1_H5FVTDSXX_4_ATCACG_A01.tas and taxon2_H5FVTDSXX_4_ATCACG_A02.tas in directory ./tagsBySample. Meanwhile, a __<font face="fjalla one" size=3>pfLog.txt</font>__ file containing basic information about ***Parsing fastq*** will be generated in current working directory.<br /><br />
+This command will generate many compressed binary files such as taxon1_H5FVTDSXX_4_ATCACG_A01.tas and taxon2_H5FVTDSXX_4_ATCACG_A02.tas in directory ./tagsBySample. Meanwhile, a __<font face="fjalla one" size=2>pfLog.txt</font>__ file containing basic information about ***Parsing fastq*** will be generated in current working directory.<br /><br />
 __<font face="fjalla one" size=3>-Xms400g</font>__ means setting the initial and minimum heap size. __<font face="fjalla one" size=3>-Xmx400g</font>__ means setting the maximum heap size.<br /> It is recommended to set the maximum heap size to equivalent to the minimum heap size in order to minimize the garbage collection. When set __<font face="fjalla one" size=3>-Xms400g</font>__ and __<font face="fjalla one" size=3>-Xmx400g</font>__, 1T size data consistent with 2.5T bases can run successful in our testing progress. You can choose proper value of Xms and Xmx according to your data size. __<font face="fjalla one" size=3>-jar /users/.../PlanGenetics.jar</font>__ is used to specify the absolute path of GRT software. You should specify ***Parsing fastqs*** analysis model using option __<font face="fjalla one" size=3>-m pf</font>__. Other options please refer to above.<br /><br /><br />
 
 #### ***Merging tags***
