@@ -1,22 +1,21 @@
 # PGL-GRT
 PlantGeneticsLab - Genotype Retrieving Toolkit
 <img src="https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1" width=400>
-## Introduction of genotype retrieving toolkit
 
 ###### Dec 17, 2018
 
-### Authors
+## Authors
 Daxing Xu (dxxu@genetics.ac.cn)<sup>1,2</sup>, Jing Wang (jing.wang@genetics.ac.cn)<sup>1</sup>, 
 Changbin Yin (yinchangbin@genetics.ac.cn)<sup>1</sup>, Fei Lu (flu@genetics.ac.cn)<sup>1,3</sup>
 <br /><br />
-### Affiliations
+## Affiliations
 <sup>1 </sup>State Key Laboratory of Plant Cell and Chromosome Engineering , Institute of Genetics and Developmental Biology, The Innovative Academy of Seed Design, Chinese Academy of Sciences
 
 <sup>2 </sup>University of Chinese Academy of Sciences
 
 <sup>3 </sup>CAS-JIC Centre of Excellence for Plant and Microbial Science (CEPAMS), Shanghai Institutes for Biological Sciences, Chinese Academy of Sciences
 <br /><br />
-### Overview
+## Overview
 <div style="text-align: justify">Genotype retrieving toolkit (GRT) includes a set of utilities to analyze data derived from the two-enzyme genotyping-by-sequencing (GBS) approach<sup>1</sup>. It has been designed to achieve a goal of being accurate, robust, and efficient while conducting SNP calling and genotyping.</div><br />
 Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
 
