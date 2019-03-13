@@ -2,20 +2,20 @@
 PlantGeneticsLab - Genotype Retrieving Toolkit
 <img src="https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1" width=400>
 
-###### Dec 17, 2018
+##### Dec 17, 2018
 
-### Authors
+## Authors
 Daxing Xu (dxxu@genetics.ac.cn)<sup>1,2</sup>, Jing Wang (jing.wang@genetics.ac.cn)<sup>1</sup>, 
 Changbin Yin (yinchangbin@genetics.ac.cn)<sup>1</sup>, Fei Lu (flu@genetics.ac.cn)<sup>1,3</sup>
 <br /><br />
-### Affiliations
+## Affiliations
 <sup>1 </sup>State Key Laboratory of Plant Cell and Chromosome Engineering , Institute of Genetics and Developmental Biology, The Innovative Academy of Seed Design, Chinese Academy of Sciences
 
 <sup>2 </sup>University of Chinese Academy of Sciences
 
 <sup>3 </sup>CAS-JIC Centre of Excellence for Plant and Microbial Science (CEPAMS), Shanghai Institutes for Biological Sciences, Chinese Academy of Sciences
 <br /><br />
-### Overview
+## Overview
 <div style="text-align: justify">Genotype retrieving toolkit (GRT) includes a set of utilities to analyze data derived from the two-enzyme genotyping-by-sequencing (GBS) approach<sup>1</sup>. It has been designed to achieve a goal of being accurate, robust, and efficient while conducting SNP calling and genotyping.</div><br />
 Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
 
@@ -28,7 +28,7 @@ Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
 
 ![pipeline of GRT](https://www.dropbox.com/s/4voizz6k9nzfpdq/database.png?raw=1)<br /><br />
 GRT is written in Java, and packed with JDK 8. Hence, it can run on Linux, Unix, Mac-OS, and Windows systems with Java 8 or later versions installed.<br /><br />
-### Options
+## Options
 Options|Description
 -------|-------
 **-m**|Analysis mode<br />
@@ -47,11 +47,11 @@ Options|Description
 **-md**|The maximum divergence between a tag and the reference genome, which is a quality control in SNP calling. The default value is 7<br />
 **-it**|The tag identify threshold. While searching the tag DB, query tag having more mismatch than the value is not considered as a match. The default value is 3
 <br /><br />
-### Utilities
+## Utilities
 For module 1, you should follow orderly ***Parsing fastqs***, ***Merging tags***, ***Aligning tags***, ***Calling SNPs***, ***Calling alleles***, ***Calling genotype***, ***Filtering database***, then a SNP variance DB of a species can be builded, which covered almost all of the diversity of this species. Hence, you can get varience information of any other samples by performing module 2, even it was not used for constructing the DB.<br />
 For module 2,  you should follow orderly ***Parsing fastqs***, ***Retrieving genotype***.<br /><br /><br />
 
-#### ***Parsing fastqs***
+### ***Parsing fastqs***
 After getting your fastq file (clean data) of individual library using two-enzyme GBS method,  you should prepare the following two  input files, including barcode file  and libraryFastqMap file. In the barcold file, you see for example,<br />
 
 Library-name|Well-ID|Library-index|EF-Barcode|ER-Barcode|Sample-ID|Taxon-name
@@ -93,7 +93,7 @@ HNF5WCCXY|2|AGTTCC|/Users/.../library-04_R1.clean.fq.gz|/Users/.../library-04_R2
 This command will generate many compressed binary files such as taxon1_H5FVTDSXX_4_ATCACG_A01.tas and taxon2_H5FVTDSXX_4_ATCACG_A02.tas in directory ./tagsBySample. Meanwhile, a __<font face="fjalla one" size=4>pfLog.txt</font>__ file containing basic information about ***Parsing fastq*** will be generated in current working directory.<br /><br />
 __<font face="fjalla one" size=4>-Xms400g</font>__ means setting the initial and minimum heap size. __<font face="fjalla one" size=4>-Xmx400g</font>__ means setting the maximum heap size.<br /> It is recommended to set the maximum heap size to equivalent to the minimum heap size in order to minimize the garbage collection. When set __<font face="fjalla one" size=4>-Xms400g</font>__ and __<font face="fjalla one" size=4>-Xmx400g</font>__, 1T size data consistent with 2.5T bases can run successful in our testing progress. You can choose proper value of Xms and Xmx according to your data size. __<font face="fjalla one" size=4>-jar /users/.../PlanGenetics.jar</font>__ is used to specify the absolute path of GRT software. You should specify ***Parsing fastqs*** analysis model using option __<font face="fjalla one" size=4>-m pf</font>__. Other options please refer to above.<br /><br /><br />
 
-#### ***Merging tags***
+### ***Merging tags***
 Only when you accomplish ***Parsing fastqs***, can you run this step. This step does not require any input files, just perform following command.<br /><br />
 __<font face="fjalla one" size=4>java   -Xms400g   -Xmx400g   -jar /users/.../PlanGenetics.jar   -m mt  -w ./  -mc 3  >./mtLog.txt</font>__  
 <br />
@@ -103,7 +103,7 @@ A tag is a pair of double-end sequencing reads where barcode sequence have been 
 <p align="middle"><img src="https://www.dropbox.com/s/fv8ckd56jdvi0lk/tag.png?raw=1" width=700></p>
 <br /><br />
 
-#### ***Aligning tags***
+### ***Aligning tags***
 After getting your predecessor of the DB, you can run this step. <br /><br />
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m at  -w ./  -g /users/.../iwgscV1.fa.gz  -bwa /users/.../bwa  -t 8  >./atLog.txt</font>__
 <br /><br />
@@ -111,19 +111,19 @@ You will get a compressed file tag.sam.gz in ./alignment directory. Additionally
 
 It is worth noting that bwa must be compiled and the reference genome must be indexed before be used. You can refer to the manual of bwa in [http://bio-bwa.sourceforge.net/bwa.shtml](https://www.google.com).
 <br /><br /><br />
-#### ***Calling SNPs***
+### ***Calling SNPs***
 When you get the tag.sam.gz and two fastq files, you can perform this step. <br /><br />
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m cs  -w ./  -md 5  -mq 30  -ml 1000   >./csLog.txt</font>__<br /><br />
 This command will update database by adding SNP information in tag.tas file. Meanwhile, a binary rawSNP.bin file representing the whole SNP information on all chromosomes will be generated in ./tagsLibrary/ directory.<br /><br /><br />
-#### ***RemoveLowCountSNP***
+### ***RemoveLowCountSNP***
 After adding SNPs information in DB, you can run this step.<br /><br />
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mt 2   >./rsLog.txt</font>__<br /><br />
 If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=4>-mt 2</font>__. It worth noting that __<font face="fjalla one" size=4>-mt</font>__ option is different from __<font face="fjalla one" size=4>-mc</font>__ option. The value of __<font face="fjalla one" size=4>mt</font>__ option equal 2 meaning that any SNP must exist at least in two different tags. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
-#### ***Calling alleles***
+### ***Calling alleles***
 When you finished last step, you can run this step. <br /><br />
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m ca  -w ./  -mq 30   -ml 1000   >./caLog.txt</font>__<br /><br />
 This command will also update the DB by adding tag alleles information in tag.tas file.<br /><br /><br />
-#### ***Calling genotype***
+### ***Calling genotype***
 After finishing adding alleles in the DB, you can run this step.<br /><br />
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m cg  -w ./  -t 8  -it 3  >./cgLog.txt</font>__<br /><br />
 The VCF files of all chromosomes will be generated in ./rawGenptype/genotype/ directory. Meanwhile a small sample file of the DB will be generated in ./tagsLibrary/tag.tas.txt. You can open this file by any text editor.<br /><br /><br />
@@ -131,11 +131,11 @@ The VCF files of all chromosomes will be generated in ./rawGenptype/genotype/ di
 When you finished last step, you can run this step.<br /><br />
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m fd  -w ./  >./fdLog.txt</font>__<br /><br />
 This command will filter the DB and the rawSNP.bin file according to a VCF file which have high quality genotype information confirmed by your experiment.<br /><br /><br />
-#### ***Retrieving genotype***
+### ***Retrieving genotype***
 When you finished building the DB and filtering it successfully, you can perform ***Parsing fastqs***（please refer above ***Parsing fastqs***）and ***Retrieving genotype*** (please refer to following instructions) orderly to get genotype information of your individual sample.
 
 __<font face="fjalla one" size=4>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./  >./rgLog.txt</font>__<br /><br />
-### References<font size=3>
+## References<font size=3>
 1.	Poland, J. A., Brown, P. J., Sorrells, M. E. & Jannink, J.-L. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).
 2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).
 3.	Lu, F. et al. Switchgrass Genomic Diversity, Ploidy, and Evolution: Novel Insights from a Network-Based SNP Discovery Protocol. *PLoS Genet*. 9, e1003215 (2013).</font>
