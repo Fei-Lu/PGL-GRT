@@ -26,8 +26,6 @@ Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
 <div style="text-align: justify">There are two major modules in GRT, the database building module and the genotyping module as shown below. </div><br />
 <div style="text-align: justify">The first module is used to build a variants database of a species from sequencing data of large amounts of samples, which can scale up to more than 100,000. By default, a 192 bp, paired-end sequence is considered as a GRT tag. Tags from all samples are merged into a tag database (DB). By aligning tags in the DB, SNP calling and allele calling are performed to add allele information to the tags in the DB. Combining tag data of each sample, genotyping can be done to generate the raw genotype. Since spurious SNPs derived from sequencing error and misalignment persists in the genotype data set, costumed genetic filters (MAF, segregation test, LD test, etc.) can be applied to filter out those spurious calls. The SNPs of validated genotype data can be used to filter and finalize the tag database for the genotyping module.</div><br />
 <div style="text-align: justify">The second module is used to assign genotypes for GBS sequenced samples. By using tags as queries and scanning through the database to retrieve allele information, It can generate consistent genotype across breeding programs and generations.</div><br />
-
-#### <p style="text-align: center;">Overview of genotype retrieving toolkit (GRT)</p></p>
 ![pipeline of GRT](https://www.dropbox.com/s/4voizz6k9nzfpdq/database.png?raw=1)<br /><br />
 GRT is written in Java, and packed with JDK 8. Hence, it can run on Linux, Unix, Mac-OS, and Windows systems with Java 8 or later versions installed.<br /><br />
 ### Options
