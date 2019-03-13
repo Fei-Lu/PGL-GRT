@@ -1,8 +1,6 @@
+![Logo of GRT](https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1)
 # PGL-GRT
 PlantGeneticsLab - Genotype Retrieving Toolkit
-
-![Logo of GRT](https://www.dropbox.com/s/w9q1z085look4ll/GRT_logo%20copy.png?raw=1)
-
 # Introduction of genotype retrieving toolkit
 
 ###### Dec 17, 2018
@@ -30,7 +28,6 @@ Different from previous GBS pipelines<sup>2,3</sup>,  GRT has 3 features:
 <div style="text-align: justify">The second module is used to assign genotypes for GBS sequenced samples. By using tags as queries and scanning through the database to retrieve allele information, It can generate consistent genotype across breeding programs and generations.</div><br />
 
 #### <p style="text-align: center;">Overview of genotype retrieving toolkit (GRT)</p>
-
 ![pipeline of GRT](https://www.dropbox.com/s/4voizz6k9nzfpdq/database.png?raw=1)<br /><br />
 GRT is written in Java, and packed with JDK 8. Hence, it can run on Linux, Unix, Mac-OS, and Windows systems with Java 8 or later versions installed.<br /><br />
 ### Options
