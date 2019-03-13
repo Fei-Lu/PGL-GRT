@@ -53,7 +53,6 @@ Options|Description
 **-ml**|The maximum range of paired-end read mapping (The insert fragment size of DNA). The default value is 1000<br />
 **-md**|The maximum divergence between a tag and the reference genome, which is a quality control in SNP calling. The default value is 7<br />
 **-it**|The tag identify threshold. While searching the tag DB, query tag having more mismatch than the value is not considered as a match. The default value is 3
-
 <br /><br />
 ### Utilities
 For module 1, you should follow orderly [***Parsing fastqs***](#pf), [***Merging tags***](#mt), [***Aligning tags***](#at), [***Calling SNPs***](#cs), [***RemoveLowCountSNP***](#rlcs), [***Calling alleles***](#ca), [***Calling genotype***](#cg), [***Filtering database***](#fd), then a SNP variance DB of a species can be builded, which covered almost all of the diversity of this species. Hence, you can get varience information of any other samples by performing module 2, even it was not used for constructing the DB.<br />
@@ -106,7 +105,7 @@ Only when you accomplish ***Parsing fastqs***, can you run this step. This step 
 __<font face="fjalla one" size=3>java   -Xms400g   -Xmx400g   -jar /users/.../PlanGenetics.jar   -m mt  -w ./  -mc 3  >./mtLog.txt</font>__  
 <br />
 This command will generate a compressed binary tag.tas file which is a  predecessor of the database. You can find this file in ./tagsLibrary/ directory. <br /><br />
-It is worth noting that ***Merging tags*** analysis mode is performed by using __<font face="fjalla one" size=3>[-m](#options) mt</font>__ option. And the option of [mc](#options) is 3 by default. To understand the mc options, first you need to understand the tag.<br /><br />
+It is worth noting that ***Merging tags*** analysis mode is performed by using __<font face="fjalla one" size=3>[-m](#options) mt</font>__ option. And the option of [-mc](#options) is 3 by default. To understand the mc options, first you need to understand the tag.<br /><br />
 A tag is a pair of double-end sequencing reads where barcode sequence have been removed. Both paired reads have been shortened to 96 bp in order to remove the bases at the 3’ end which have the low base quality value and to compress the the paired reads so as to reduce the memory consumption (Fig. 1). And the two tags are equal only when the two reads of one tag are the same as the bases of the two reads of the other tag. So one tag can have many duplicate. The minimum duplicate number of one tag is 3 by default, which means every tag at least having 3 duplicate in our wheat variance database. It is up to you to adjust this value by using __<font face="fjalla one" size=3>[-mc](#options)</font>__ option.<br /><br />
 
 <p align="middle"><img src="https://www.dropbox.com/s/fv8ckd56jdvi0lk/tag.png?raw=1" width=700></p>
@@ -131,7 +130,7 @@ This command will update database by adding SNP information in tag.tas file. Mea
 #### ***RemoveLowCountSNP***</a>
 After adding SNPs information in DB, you can run this step.<br /><br />
 __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mt 2   >./rsLog.txt</font>__<br /><br />
-If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=3>[-mt](#options) 2</font>__. It worth noting that __<font face="fjalla one" size=3>[-mt](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[mt](#options)</font>__ option equal 2 meaning that any SNP must exist at least in two different tags. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
+If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=3>[-mt](#options) 2</font>__. It worth noting that __<font face="fjalla one" size=3>[-mt](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[-mt](#options)</font>__ option equal 2 meaning that any SNP must exist at least in two different tags. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
 <a name="ca">
 #### ***Calling alleles***</a>
 When you finished last step, you can run this step. <br /><br />
@@ -157,4 +156,6 @@ __<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanG
 [1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
 [2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
 [3.	Lu, F. et al. Switchgrass Genomic Diversity, Ploidy, and Evolution: Novel Insights from a Network-Based SNP Discovery Protocol. *PLoS Genet*. 9, e1003215 (2013).</font>](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003215)
+
+
 
