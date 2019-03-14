@@ -7,7 +7,7 @@
 PlantGeneticsLab - Genotype Retrieving Toolkit
 
 
-###### Dec 17, 2018
+###### Mar 13, 2019
 
 ### Authors
 Daxing Xu (dxxu@genetics.ac.cn)<sup>1,2</sup>, Jing Wang (jing.wang@genetics.ac.cn)<sup>1</sup>, 
