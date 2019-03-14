@@ -54,6 +54,7 @@ Options|Description|value
 **-ml**|The maximum range of paired-end read mapping (The insert fragment size of DNA). The default value is 1000<br />|1000
 **-md**|The maximum divergence between a tag and the reference genome, which is a quality control in SNP calling. The default value is 7<br />|7
 **-it**|The tag identify threshold. While searching the tag DB, query tag having more mismatch than the value is not considered as a match. The default value is 3|3
+
 <br /><br />
 ### Utilities
 For module 1, you should follow orderly [***Parsing fastqs***](#pf), [***Merging tags***](#mt), [***Aligning tags***](#at), [***Calling SNPs***](#cs), [***RemoveLowCountSNP***](#rlcs), [***Calling alleles***](#ca), [***Calling genotype***](#cg), [***Filtering database***](#fd), then a SNP variance DB of a species can be builded, which covered almost all of the diversity of this species. Hence, you can get varience information of any other samples by performing module 2, even it was not used for constructing the DB.<br /><br />
