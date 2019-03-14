@@ -1,4 +1,5 @@
-<p align="left"><img src="https://www.dropbox.com/s/5wh4217i8d0x4xp/logo%20PGL.png?raw=1" width=300></p>
+<p align="left"><img src="https://www.dropbox.com/s/5wh4217i8d0x4xp/logo%20PGL.png?raw=1" height=200><img src="https://www.dropbox.com/s/i88hviuro2uuh31/GRT_logo.png?raw=1" height=200>
+</p>
 
 # PGL-GRT
 
@@ -94,16 +95,18 @@ HNF5WCCXY|2|AGTTCC|/Users/.../library-04_R1.clean.fq.gz|/Users/.../library-04_R2
 ...|
 ...|
 
- If you have prepared these two files successfully, then you can perform following command.  <br /><br />
- __<font face="fjalla one" size=3>java -Xms400g -Xmx400g -jar /users/.../PlanGenetics.jar -m pf -w ./ -b /users/.../barcodefile.txt -f /users/.../libraryFastqMap.txt  -ef GGATCC  -er CCGG  -t 8   >./pfLog.txt </font>__
- <br /> <br />
+ If you have prepared these two files successfully, then you can perform following command.  <br />
+ ~~~
+ nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m pf  -w ./  -b /users/.../barcodefile.txt  -f /users/.../libraryFastqMap.txt  -ef GGATCC  -er CCGG  -t 8   >./pfLog.txt &
+ ~~~
 This command will generate many compressed binary files such as taxon1_H5FVTDSXX_4_ATCACG_A01.tas and taxon2_H5FVTDSXX_4_ATCACG_A02.tas in directory ./tagsBySample. Meanwhile, a __<font face="fjalla one" size=4>pfLog.txt</font>__ file containing basic information about [***Parsing fastq***](#pf) will be generated in current working directory.<br /><br />
 __<font face="fjalla one" size=3>-Xms400g</font>__ means setting the initial and minimum heap size. __<font face="fjalla one" size=3>-Xmx400g</font>__ means setting the maximum heap size.<br /> It is recommended to set the maximum heap size to equivalent to the minimum heap size in order to minimize the garbage collection. When set __<font face="fjalla one" size=3>-Xms400g</font>__ and __<font face="fjalla one" size=3>-Xmx400g</font>__, 1T size data consistent with 2.5T bases can run successful in our testing progress. You can choose proper value of Xms and Xmx according to your data size. __<font face="fjalla one" size=3>[-jar](#options) /users/.../PlanGenetics.jar</font>__ is used to specify the absolute path of GRT software. You should specify ***Parsing fastqs*** analysis model using option __<font face="fjalla one" size=3>[-m](#options) pf</font>__. Other options please refer to above.<br /><br /><br />
 <a name="mt">
 #### ***Merging tags***</a>
-Only when you accomplish ***Parsing fastqs***, can you run this step. This step does not require any input files, just perform following command.<br /><br />
-__<font face="fjalla one" size=3>java   -Xms400g   -Xmx400g   -jar /users/.../PlanGenetics.jar   -m mt  -w ./  -mc 3  >./mtLog.txt</font>__  
-<br />
+Only when you accomplish ***Parsing fastqs***, can you run this step. This step does not require any input files, just perform following command.<br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m mt  -w ./  -mc 3  >./mtLog.txt &
+~~~
 This command will generate a compressed binary tag.tas file which is a  predecessor of the database. You can find this file in ./tagsLibrary/ directory. <br /><br />
 It is worth noting that ***Merging tags*** analysis mode is performed by using __<font face="fjalla one" size=3>[-m](#options) mt</font>__ option. And the option of [-mc](#options) is 3 by default. To understand the mc options, first you need to understand the tag.<br /><br />
 A tag is a pair of double-end sequencing reads where barcode sequence have been removed. Both paired reads have been shortened to 96 bp in order to remove the bases at the 3’ end which have the low base quality value and to compress the the paired reads so as to reduce the memory consumption (Fig. 1). And the two tags are equal only when the two reads of one tag are the same as the bases of the two reads of the other tag. So one tag can have many duplicate. The minimum duplicate number of one tag is 3 by default, which means every tag at least having 3 duplicate in our wheat variance database. It is up to you to adjust this value by using __<font face="fjalla one" size=3>[-mc](#options)</font>__ option.<br /><br />
@@ -114,48 +117,59 @@ A tag is a pair of double-end sequencing reads where barcode sequence have been 
 <a name="at">
 
 #### ***Aligning tags***</a>
-After getting your predecessor of the DB, you can run this step. <br /><br />
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m at  -w ./  -g /users/.../iwgscV1.fa.gz  -bwa /users/.../bwa  -t 8  >./atLog.txt</font>__
-<br /><br />
+After getting your predecessor of the DB, you can run this step. <br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m at  -w ./  -g /users/.../iwgscV1.fa.gz  -bwa /users/.../bwa  -t 8  >./atLog.txt &
+~~~
 You will get a compressed file tag.sam.gz in ./alignment directory. Additionally, two fastq files containing non-redundant reads from tag.tas file are in the same directory. The value of __<font face="fjalla one" size=3>[-t](#options)</font>__ option can be changed according to the number of logical CPU. <br />
 
 It is worth noting that bwa must be compiled and the reference genome must be indexed before be used. You can refer to the manual of bwa in [http://bio-bwa.sourceforge.net/bwa.shtml](https://www.google.com).
 <br /><br /><br />
 <a name="cs">
 #### ***Calling SNPs***</a>
-When you get the tag.sam.gz and two fastq files, you can perform this step. <br /><br />
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m cs  -w ./  -md 5  -mq 30  -ml 1000   >./csLog.txt</font>__<br /><br />
+When you get the tag.sam.gz and two fastq files, you can perform this step. <br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m cs  -w ./  -md 5  -mq 30  -ml 1000   >./csLog.txt &
+~~~
 This command will update database by adding SNP information in tag.tas file. Meanwhile, a binary rawSNP.bin file representing the whole SNP information on all chromosomes will be generated in ./tagsLibrary/ directory.<br /><br /><br />
 <a name="rlcs">
 #### ***RemoveLowCountSNP***</a>
-After adding SNPs information in DB, you can run this step.<br /><br />
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mt 2   >./rsLog.txt</font>__<br /><br />
+After adding SNPs information in DB, you can run this step.<br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mt 2   >./rsLog.txt &
+~~~
 If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=3>[-mt](#options) 2</font>__. It worth noting that __<font face="fjalla one" size=3>[-mt](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[-mt](#options)</font>__ option equal 2 meaning that any SNP must exist at least in two different tags. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
 <a name="ca">
 #### ***Calling alleles***</a>
-When you finished last step, you can run this step. <br /><br />
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m ca  -w ./  -mq 30   -ml 1000   >./caLog.txt</font>__<br /><br />
+When you finished last step, you can run this step. <br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m ca  -w ./  -mq 30   -ml 1000   >./caLog.txt &
+~~~
 This command will also update the DB by adding tag alleles information in tag.tas file.<br /><br /><br />
 <a name="cg">
 #### ***Calling genotype***</a>
-After finishing adding alleles in the DB, you can run this step.<br /><br />
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m cg  -w ./  -t 8  -it 3  >./cgLog.txt</font>__<br /><br />
+After finishing adding alleles in the DB, you can run this step.<br />
+~~~
+nphup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m cg  -w ./  -t 8  -it 3  >./cgLog.txt &
+~~~
 The VCF files of all chromosomes will be generated in ./rawGenptype/genotype/ directory. Meanwhile a small sample file of the DB will be generated in ./tagsLibrary/tag.tas.txt. You can open this file by any text editor.<br /><br /><br />
 <a name="fd">
 #### ***Filtering database***</a>
-When you finished last step, you can run this step.<br /><br />
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m fd  -w ./  >./fdLog.txt</font>__<br /><br />
+When you finished last step, you can run this step.<br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m fd  -w ./  >./fdLog.txt &
+~~~
 This command will filter the DB and the rawSNP.bin file according to a VCF file which have high quality genotype information confirmed by your experiment.<br /><br /><br />
 <a name="rg">
 #### ***Retrieving genotype***</a>
-When you finished building the DB and filtering it successfully, you can perform ***Parsing fastqs***（please refer above [***Parsing fastqs***](#pf)）and ***Retrieving genotype*** (please refer to following instructions) orderly to get genotype information of your individual sample.
-
-__<font face="fjalla one" size=3>java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./  >./rgLog.txt</font>__<br /><br />
+When you finished building the DB and filtering it successfully, you can perform ***Parsing fastqs***（please refer above [***Parsing fastqs***](#pf)）and ***Retrieving genotype*** (please refer to following instructions) orderly to get genotype information of your individual sample.<br />
+~~~
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./  >./rgLog.txt &
+~~~
 <a name="ref">
 ### References</a><font size=3>
 [1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
 [2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
 [3.	Lu, F. et al. Switchgrass Genomic Diversity, Ploidy, and Evolution: Novel Insights from a Network-Based SNP Discovery Protocol. *PLoS Genet*. 9, e1003215 (2013).</font>](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003215)
-
 
 
