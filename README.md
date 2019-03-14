@@ -175,4 +175,3 @@ nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./ 
 2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).<br />(https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
 3.	Lu, F. et al. Switchgrass Genomic Diversity, Ploidy, and Evolution: Novel Insights from a Network-Based SNP Discovery Protocol. *PLoS Genet*. 9, e1003215 (2013).</font><br />(https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003215)<br />
 
-
