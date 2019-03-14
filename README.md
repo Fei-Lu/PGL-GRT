@@ -37,23 +37,23 @@ Different from previous GBS pipelines<sup>[2,3](#ref)</sup>,  GRT has 3 features
 GRT is written in Java, and packed with JDK 8. Hence, it can run on Linux, Unix, Mac-OS, and Windows systems with Java 8 or later versions installed.<br /><br />
 <a name="options">
 ### Options</a>
-Options|Description
--------|-------
-**-m**|Analysis mode<br />
-**-w**|Working directory, where sub-directories are created for analysis<br />
-**-b**|The barcode file, where sample barcoding information is stored<br />
-**-f**|The libraryFastqMap file, where corresponding fastq files can be found for each flowcell_lane_library-index combination<br />
-**-ef**|Recognition sequence of restriction enzyme in R1, e.g GGATCC<br />
-**-er**|Recognition sequence of restriction enzyme in R2, e.g CCGG<br />
-**-t**|Number of threads. The default value is 32. The actual number of running threads is less than the number of cores regardless of the input value, but -1 means the number of all available cores<br />
-**-g**|The reference genome of the species. The indexing files should be included in the same directory of the reference genome<br />
-**-bwa**|The path of bwa executable file, e.g /Users/Software/bwa-0.7.15/bwa<br />
-**-mc**|The minimum read count of tag in database. The default value is 3<br />
-**-mt**|The minimum count of tag from which a SNP is called. The default value is 2<br />
-**-mq**|The minimum read mapping quality for SNP calling and allele calling. The default value is 30<br />
-**-ml**|The maximum range of paired-end read mapping (The insert fragment size of DNA). The default value is 1000<br />
-**-md**|The maximum divergence between a tag and the reference genome, which is a quality control in SNP calling. The default value is 7<br />
-**-it**|The tag identify threshold. While searching the tag DB, query tag having more mismatch than the value is not considered as a match. The default value is 3
+Options|Description|value
+-------|-------|------
+**-m**|Analysis mode|pf, mt, at, cs, rs, ca, cg, fd, rg <br />
+**-w**|Working directory, where sub-directories are created for analysis<br />|./
+**-b**|The barcode file, where sample barcoding information is stored<br />|/users/.../barcodefile.txt
+**-f**|The libraryFastqMap file, where corresponding fastq files can be found for each flowcell_lane_library-index combination<br />|/users/.../libraryFastqMap.txt
+**-ef**|Recognition sequence of restriction enzyme in R1, e.g GGATCC<br />|GGATCC
+**-er**|Recognition sequence of restriction enzyme in R2, e.g CCGG<br />|CCGG
+**-t**|Number of threads. The default value is 32. The actual number of running threads is less than the number of cores regardless of the input value, but -1 means the number of all available cores<br />|32
+**-g**|The reference genome of the species. The indexing files should be included in the same directory of the reference genome<br />|/users/.../iwgscV1.fa.gz
+**-bwa**|The path of bwa executable file, e.g /Users/Software/bwa-0.7.15/bwa<br />|/users/.../bwa
+**-mc**|The minimum read count of tag in database. The default value is 3<br />|3
+**-mt**|The minimum count of tag from which a SNP is called. The default value is 2<br />|2
+**-mq**|The minimum read mapping quality for SNP calling and allele calling.<br /> The default value is 30<br />|30
+**-ml**|The maximum range of paired-end read mapping (The insert fragment size of DNA). The default value is 1000<br />|1000
+**-md**|The maximum divergence between a tag and the reference genome, which is a quality control in SNP calling. The default value is 7<br />|7
+**-it**|The tag identify threshold. While searching the tag DB, query tag having more mismatch than the value is not considered as a match. The default value is 3|3
 <br /><br />
 ### Utilities
 For module 1, you should follow orderly [***Parsing fastqs***](#pf), [***Merging tags***](#mt), [***Aligning tags***](#at), [***Calling SNPs***](#cs), [***RemoveLowCountSNP***](#rlcs), [***Calling alleles***](#ca), [***Calling genotype***](#cg), [***Filtering database***](#fd), then a SNP variance DB of a species can be builded, which covered almost all of the diversity of this species. Hence, you can get varience information of any other samples by performing module 2, even it was not used for constructing the DB.<br /><br />
@@ -167,8 +167,7 @@ When you finished building the DB and filtering it successfully, you can perform
 nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./  >./rgLog.txt &
 ~~~
 <a name="ref">
- <br />
- 
+<br />
 ### References</a><font size=3>
 [1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
 [2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
