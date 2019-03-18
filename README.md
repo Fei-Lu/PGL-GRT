@@ -169,6 +169,8 @@ nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./ 
 ~~~
 <a name="ref">
 <br />
+### How to cite<br />
+ coming soon
 
 ### References</a><font size=3>
 1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).<br />(https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
