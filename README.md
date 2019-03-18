@@ -172,8 +172,7 @@ nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./ 
  
 ### How to cite
  Our paper will come soon
- <br /><br /><br />
-
+ <br /><br />
 ### References</a><font size=3>
 1.	Poland, J. A. et al. Development of High-Density Genetic Maps for Barley and Wheat Using a Novel Two-Enzyme Genotyping-by-Sequencing Approach. *PLoS ONE* 7, e32253 (2012).<br />(https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0032253)<br />
 2.	Glaubitz, J. C. et al. TASSEL-GBS: A High Capacity Genotyping by Sequencing Analysis Pipeline. *PLoS ONE* 9, e90346 (2014).<br />(https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090346)<br />
