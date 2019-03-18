@@ -1,4 +1,4 @@
-<p align="left"><img src="https://www.dropbox.com/s/5wh4217i8d0x4xp/logo%20PGL.png?raw=1" height=200><img src="https://www.dropbox.com/s/i88hviuro2uuh31/GRT_logo.png?raw=1" height=200>
+<p align="left"><img src="https://www.dropbox.com/s/5wh4217i8d0x4xp/logo%20PGL.png?raw=1" height=200>
 </p>
 
 # PGL-GRT
