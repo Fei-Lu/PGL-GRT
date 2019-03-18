@@ -169,7 +169,8 @@ nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rg  -w ./ 
 ~~~
 <a name="ref">
 <br />
-### How to cite<br />
+ 
+### How to cite
  coming soon
 
 ### References</a><font size=3>
