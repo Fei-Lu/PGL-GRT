@@ -139,7 +139,7 @@ After adding SNPs information in DB, you can run this step.<br />
 ~~~
 nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mca 10   >./rsLog.txt &
 ~~~
-If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=3>[-mt](#options) 2</font>__. It worth noting that __<font face="fjalla one" size=3>[-mt](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[-mca](#options)</font>__ option equal 10 meaning that any alternative allele must have at least 10 reads count. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
+If an alternative allele have less than 10 reads count, then it will be removed by adding option __<font face="fjalla one" size=3>[-mca](#options) 10</font>__. It worth noting that __<font face="fjalla one" size=3>[-mca](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[-mca](#options)</font>__ option equal 10 meaning that any alternative allele must have at least 10 reads count. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
 <a name="ca">
 #### ***Calling alleles***</a>
 When you finished last step, you can run this step. <br />
