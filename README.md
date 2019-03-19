@@ -49,7 +49,7 @@ Options|Description|value
 **-g**|The reference genome of the species. The indexing files should be included in the same directory of the reference genome<br />|/users/.../iwgscV1.fa.gz
 **-bwa**|The path of bwa executable file, e.g /Users/Software/bwa-0.7.15/bwa<br />|/users/.../bwa
 **-mc**|The minimum read count of tag in database. The default value is 3<br />|3
-**-mt**|The minimum count of tag from which a SNP is called. The default value is 2<br />|2
+**-mca**|The minimum read count of an alternative allele. The default value is 10<br />|10
 **-mq**|The minimum read mapping quality for SNP calling and allele calling.<br /> The default value is 30<br />|30
 **-ml**|The maximum range of paired-end read mapping (The insert fragment size of DNA). The default value is 1000<br />|1000
 **-md**|The maximum divergence between a tag and the reference genome, which is a quality control in SNP calling. The default value is 7<br />|7
@@ -137,9 +137,9 @@ This command will update database by adding SNP information in tag.tas file. Mea
 #### ***RemoveLowCountSNP***</a>
 After adding SNPs information in DB, you can run this step.<br />
 ~~~
-nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mt 2   >./rsLog.txt &
+nohup  java  -Xms400g  -Xmx400g  -jar /users/.../PlanGenetics.jar  -m rs  -w ./  -mca 10   >./rsLog.txt &
 ~~~
-If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=3>[-mt](#options) 2</font>__. It worth noting that __<font face="fjalla one" size=3>[-mt](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[-mt](#options)</font>__ option equal 2 meaning that any SNP must exist at least in two different tags. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
+If a SNP existing in only one tag, then it will be removed by adding option __<font face="fjalla one" size=3>[-mt](#options) 2</font>__. It worth noting that __<font face="fjalla one" size=3>[-mt](#options)</font>__ option is different from __<font face="fjalla one" size=3>[-mc](#options)</font>__ option. The value of __<font face="fjalla one" size=3>[-mca](#options)</font>__ option equal 10 meaning that any alternative allele must have at least 10 reads count. Otherwise, it will be filtered out from the binary rawSNP.bin file.<br /><br /><br />
 <a name="ca">
 #### ***Calling alleles***</a>
 When you finished last step, you can run this step. <br />
