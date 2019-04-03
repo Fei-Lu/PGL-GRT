@@ -3,7 +3,7 @@
 # PGL-GRT
 
 
-PlantGeneticsLab - Genotype Retrieving Toolkit [![图片alt](https://www.dropbox.com/s/pojbxwliaxzab3e/download.png?raw=1)](https://www.dropbox.com/s/r4gs2fefexew27o/PlantGenetics.jar?raw=1)
+PlantGeneticsLab - Genotype Retrieving Toolkit [![图片alt](https://www.dropbox.com/s/a5al7yh2vt82hh0/smallDownload.png?raw=1)](https://www.dropbox.com/s/r4gs2fefexew27o/PlantGenetics.jar?raw=1)
 
 
 ###### Mar 13, 2019
