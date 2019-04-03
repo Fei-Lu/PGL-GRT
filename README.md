@@ -4,7 +4,7 @@
 
 
 PlantGeneticsLab - Genotype Retrieving Toolkit<br />
-[![图片alt](https://www.dropbox.com/s/a5al7yh2vt82hh0/smallDownload.png?raw=1)](https://www.dropbox.com/s/r4gs2fefexew27o/PlantGenetics.jar?raw=1)
+[![图片alt](https://www.dropbox.com/s/6lnn0yoltpdzirj/smallDownload.png?raw=1)](https://www.dropbox.com/s/r4gs2fefexew27o/PlantGenetics.jar?raw=1)
 
 
 ###### Mar 13, 2019
