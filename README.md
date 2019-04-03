@@ -3,7 +3,7 @@
 # PGL-GRT
 
 
-PlantGeneticsLab - Genotype Retrieving Toolkit 
+PlantGeneticsLab - Genotype Retrieving Toolkit
 
 
 ###### Mar 13, 2019
