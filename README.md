@@ -1,4 +1,5 @@
 <img src="https://www.dropbox.com/s/mlutc2rjryzzn0g/PGL-GRT.png?raw=1" height=200 align="center"> 
+<a href="https://imgur.com/YrCZX9u"><img src="https://i.imgur.com/YrCZX9u.png" title="source: imgur.com" /></a>
 
 # PGL-GRT
 
