@@ -2,7 +2,7 @@
 
 <img src="https://i.imgur.com/KnmY1Yy.png" height=200 align="center">
 
-<a href="https://imgur.com/KnmY1Yy"><img src="https://i.imgur.com/KnmY1Yy.png" title="source: imgur.com" height=200 align="center" /></a>
+<a href="https://imgur.com/KnmY1Yy"><img src="https://i.imgur.com/KnmY1Yy.png" height=200 align="center" /></a>
 
 # PGL-GRT
 
