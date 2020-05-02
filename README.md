@@ -1,6 +1,6 @@
 <img src="https://www.dropbox.com/s/mlutc2rjryzzn0g/PGL-GRT.png?raw=1" height=200 align="center"> 
 
-![Imgur](https://i.imgur.com/KnmY1Yy.png)
+<img src="https://i.imgur.com/KnmY1Yy.png" height=200 align="center">
 
 # PGL-GRT
 
