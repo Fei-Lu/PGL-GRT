@@ -1,5 +1,4 @@
 <img src="https://www.dropbox.com/s/mlutc2rjryzzn0g/PGL-GRT.png?raw=1" height=200 align="center"> 
-<a href="https://imgur.com/YrCZX9u"><img src="https://i.imgur.com/YrCZX9u.png" title="source: imgur.com" /></a>
 
 # PGL-GRT
 
@@ -34,6 +33,7 @@ Different from previous GBS pipelines<sup>[2,3](#ref)</sup>,  GRT has 3 features
 
 
 ![pipeline of GRT](https://www.dropbox.com/s/4voizz6k9nzfpdq/database.png?raw=1)<br /><br />
+
 
 GRT is written in Java, and packed with JDK 8. Hence, it can run on Linux, Unix, Mac-OS, and Windows systems with Java 8 or later versions installed.<br /><br />
 <a name="options">
